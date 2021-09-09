@@ -1,0 +1,23 @@
+<div>
+    <table>
+    
+            <tr>
+                    <% for (head of headers) {%>
+                        
+                       <th><%=head%> </th>
+                        <%}%>
+                   </tr>
+            
+       
+                   <% for (detail of data) {%>
+                    <tr>
+                     <% for (row of headers) {%>
+                        
+                        <td><%=detail[row]%> </td>
+                        <%}%>
+                     </tr>
+                    <%}%>
+               
+    
+    </table>
+    </div>

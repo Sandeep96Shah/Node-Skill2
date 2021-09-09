@@ -1,9 +1,17 @@
 const express=require('express');
 const port=7000;
+const db=require('./config/mongoose');
+//const cokkiesparser=require('cookie-parser');
 // creating express app
 const app=express();
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }))
+//app.use(cokkiesparser());
+
+app.use('/uploads',express.static(__dirname +'/uploads'));
+
+app.set('view engine','ejs');
+app.set('views','./view');
 
 app.use('/',require('./route'));
 

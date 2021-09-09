@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
-const CSVFILE_PATH = path.join("/uploads/csvfile");
+const CSVFILE_PATH = path.join('/uploads');
 
 const csvfileSchema = new mongoose.Schema({
   filepath: {
@@ -14,10 +14,9 @@ const csvfileSchema = new mongoose.Schema({
   },
 });
 
-// function to upload file
+// function to upload file using multer
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log("in destination users", CSVFILE_PATH);
     cb(null, path.join(__dirname, "..", CSVFILE_PATH));
   },
   filename: function (req, file, cb){
@@ -28,7 +27,7 @@ let storage = multer.diskStorage({
 });
 
 // static to make them available for others
-csvfileSchema.statics.uploadedfile = multer({ storage: storage }).single("csvfile");
+csvfileSchema.statics.uploadcsvfile = multer({ storage: storage }).single("csvfile");
 csvfileSchema.statics.csvfilepath = CSVFILE_PATH;
 
 const CSVFILE = mongoose.model("CSVFILE", csvfileSchema);

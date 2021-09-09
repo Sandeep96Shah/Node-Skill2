@@ -1,0 +1,52 @@
+<div>
+    <h1>Welcome To CSV File Upload</h1>
+
+    <h2>List of files </h2>
+
+    <ul>
+        <% for(file of data) {%>
+
+            <l1>
+                <a href="/file/showfile?id=<%=file.id%>"><p><%=file.filename%></p></a>
+            </l1>
+            <%}%>
+    </ul>
+
+
+
+    <h2>
+        Upload CSV File:
+    </h2>
+
+    <form action='/file/create' method="POST" enctype="multipart/form-data">
+        <input type="file" name='csvfile' onchange="ValidateSingleInput(this);" >
+        <input type="submit" value='Upload'>
+    </form>
+</div>
+
+<script>
+
+var _validFileExtensions = ['.csv'];    
+function ValidateSingleInput(oInput) {
+    if (oInput.type == "file") {
+        var sFileName = oInput.value;
+         if (sFileName.length > 0) {
+            var blnValid = false;
+            for (var j = 0; j < _validFileExtensions.length; j++) {
+                var sCurExtension = _validFileExtensions[j];
+                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                    blnValid = true;
+                    break;
+                }
+            }
+             
+            if (!blnValid) {
+                alert("Please upload csv file only!")
+                oInput.value = "";
+                return false;
+            }
+        }
+    }
+    return true;
+}
+</script>
