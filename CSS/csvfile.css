@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box
+}
+div{
+    padding: 0px;
+    margin: 0px;
+}
+h1{
+    padding: 0px;
+    margin: 0px;
+}
+h2{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.csvfile_outer{
+    height: 100vh;
+    width: 100vw;
+    padding: 30px;
+}
+.csvfile_outer h1{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    margin-bottom: 15px;
+    box-shadow: 0px 15px 10px -15px #111;
+}
+.csvfile_outer form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

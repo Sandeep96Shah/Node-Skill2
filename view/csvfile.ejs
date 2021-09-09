@@ -1,9 +1,9 @@
-
-<div>
+<link href="/csvfile.css" rel="stylesheet" type="text/css">
+<div class="csvfile_outer">
     <h1><%=title%></h1>
-      <form action='/file/search?id=<%=title%> ' method='POST'style="margin:40px">
-        <input type="text"  style="height: 20px; width:120px " name='col'placeholder="col value ">
-          <input type='text' style="height: 20px ;width:170px" placeholder="value to search" name='name'>
+      <form action='/file/search?id=<%=title%> ' method='POST'>
+        <input type="text"  style=" width:120px; margin-right:20px " name='col'placeholder="col value ">
+          <input type='text' style="width:200px; margin-right:10px" placeholder="value to search" name='name'>
           <input type='submit'  style="padding: 2px" value='search'  >
       </form>
   
@@ -31,4 +31,4 @@
       </table>
   
       
-  </div>
+</div>
