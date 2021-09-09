@@ -1,6 +1,7 @@
 const CSVFILE = require("../model/csvfile");
 const csv = require("csv-parser");
 const fs = require("fs");
+const notifier = require('node-notifier');
 let fileList = [];
 
 async function gettingDetails(fileName){
@@ -43,6 +44,7 @@ module.exports.create = (req, res) => {
         }
 
         //going to the called page
+        notifier.notify('File Uploaded');
         return res.redirect("back");
       }
     );
@@ -66,6 +68,7 @@ module.exports.showfile = async (req, res) => {
      console.log('object details: ',columnTitles);
 
       // rendering file view
+      notifier.notify('File Details');
     return res.render('csvfile',
       {
            title:`${csvfile._id}`,
@@ -75,6 +78,7 @@ module.exports.showfile = async (req, res) => {
 
   }catch(err){
     console.log('Error while uploading the file!',err);
+    notifier.notify('Error while uploading the file!');
     return res.redirect('back');
   }
 };
@@ -120,12 +124,14 @@ module.exports.search = async (req, res) => {
     }
     console.log("searchResults", searchResults);
 
+    notifier.notify('Searched data from file');
     return res.render("search", {
       data: searchResults,
       headers: propNames,
     });
   } catch (err) {
     console.log("Error while Searching for the specific detail : ", err);
+    notifier.notify('Error while getting the searched data from the file!');
     return res.redirect("back");
   }
 };

@@ -1,4 +1,5 @@
 const CSVFILE = require('../model/csvfile');
+const notifier = require('node-notifier');
 
 module.exports.home=async (req,res) => {  
     try{
@@ -7,6 +8,7 @@ module.exports.home=async (req,res) => {
         let  csvfiles=await CSVFILE.find({});
 
         // rendering home view
+        notifier.notify('Welcome User');
         return res.render('home',{
             title:'home',
             data:csvfiles
