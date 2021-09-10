@@ -1,5 +1,5 @@
 const express=require('express');
-const port=7000;
+const port= process.env.PORT || 8000;
 const db=require('./config/mongoose');
 //const cokkiesparser=require('cookie-parser');
 // creating express app
