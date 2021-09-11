@@ -24,6 +24,9 @@ async function gettingDetails(fileName){
 module.exports.create = (req, res) => {
   let filepath;
   // uploading file by using the static variable
+  if(!req.file){
+    return redirect("back");
+  }
   CSVFILE.uploadcsvfile(req, res, function (err){
     if(err) {
       return res.redirect("back");
