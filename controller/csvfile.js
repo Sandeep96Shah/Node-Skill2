@@ -24,9 +24,9 @@ async function gettingDetails(fileName){
 module.exports.create = (req, res) => {
   let filepath;
   // uploading file by using the static variable
-  if(!req.file){
-    return redirect("back");
-  }
+  // if(!req.file){
+  //   return res.redirect("back");
+  // }
   CSVFILE.uploadcsvfile(req, res, function (err){
     if(err) {
       return res.redirect("back");
@@ -45,7 +45,7 @@ module.exports.create = (req, res) => {
           console.log("error while creating the file", err);
           return res.redirect("back");
         }
-
+        //console.log("csvfile", csvfile);
         //going to the called page
         notifier.notify('File Uploaded');
         return res.redirect("back");
