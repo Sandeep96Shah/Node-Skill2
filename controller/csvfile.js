@@ -48,7 +48,7 @@ module.exports.create = (req, res) => {
         //console.log("csvfile", csvfile);
         //going to the called page
         notifier.notify('File Uploaded');
-        return res.redirect("back");
+        return res.render('display');
       }
     );
   });
