@@ -31,9 +31,15 @@ body{
     border-bottom: 1px solid gray;
     margin-bottom: 15px;
     box-shadow: 0px 15px 10px -15px #111;
+    border: 1px solid gray;
+    background-color: #f5f2f2;
+    border-radius: 10px;
 }
 .csvfile_outer form{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.csvfile_outer form input{
+    font-size: 20px;
 }
